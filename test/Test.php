@@ -12,12 +12,17 @@ class Test extends TestCase
     {
         $password = require realpath(__DIR__.'/../src/gummibeer.php');
 
-        $this->assertIsString($password);
-        $this->assertEquals(16, strlen($password));
-        $this->assertTrue(boolval(preg_match("/[a-z]/", $password)));
-        $this->assertTrue(boolval(preg_match("/[A-Z]/", $password)));
-        $this->assertTrue(boolval(preg_match("/[0-9]/", $password)));
-        $this->assertTrue(boolval(preg_match("/[\!\#\$\%\&\(\)\*\+\,\-\.\/\:\;\<\=\>\? \@\[\]\^\_\{\|\}\~]/", $password)));
+        static::assertPassword($password);
+    }
+    
+    protected static function assertPassword($password)
+    {
+        static::assertIsString($password, $password);
+        static::assertEquals(16, strlen($password), $password);
+        static::assertTrue(boolval(preg_match("/[a-z]/", $password)), $password);
+        static::assertTrue(boolval(preg_match("/[A-Z]/", $password)), $password);
+        static::assertTrue(boolval(preg_match("/[0-9]/", $password)), $password);
+        static::assertTrue(boolval(preg_match("/[\!\#\$\%\&\(\)\*\+\,\-\.\/\:\;\<\=\>\? \@\[\]\^\_\{\|\}\~]/", $password)), $password);
     }
 
     public function provider(): array
