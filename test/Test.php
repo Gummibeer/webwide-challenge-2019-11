@@ -17,7 +17,7 @@ class Test extends TestCase
         $this->assertTrue(boolval(preg_match("/[a-z]/", $password)));
         $this->assertTrue(boolval(preg_match("/[A-Z]/", $password)));
         $this->assertTrue(boolval(preg_match("/[0-9]/", $password)));
-        $this->assertTrue(boolval(preg_match("/[!#$%&()*+,\-./:;<=>? @\[\]^_{|}~]/", $password)));
+        $this->assertTrue(boolval(preg_match("/[\!\#\$\%\&\(\)\*\+\,\-\.\/\:\;\<\=\>\? \@\[\]\^\_\{\|\}\~]/", $password)));
     }
 
     public function provider(): array
