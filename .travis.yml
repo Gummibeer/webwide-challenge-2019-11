@@ -1,0 +1,17 @@
+matrix:
+  include:
+    - language: php
+      php: 7.4snapshot
+      before_install:
+        - composer config discard-changes true
+        - travis_retry composer self-update
+      install:
+        - travis_retry composer update --prefer-stable --prefer-dist --no-suggest --no-interaction
+      script:
+        - vendor/bin/phpunit
+    - language: node_js
+      node_js: 12
+      install:
+        - travis_retry npm install
+      script:
+        - npm test
