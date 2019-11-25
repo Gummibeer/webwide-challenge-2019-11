@@ -8,10 +8,16 @@ matrix:
       install:
         - travis_retry composer update --prefer-stable --prefer-dist --no-suggest --no-interaction
       script:
-        - vendor/bin/phpunit
+        - vendor/bin/phpunit --filter gummibeer
     - language: node_js
       node_js: 12
       install:
         - travis_retry npm install
       script:
-        - npm test
+        - node ./node_modules/.bin/mocha -g kylejrp
+    - language: node_js
+      node_js: 12
+      install:
+        - travis_retry npm install
+      script:
+        - node ./node_modules/.bin/mocha -g gummibeer

@@ -8,7 +8,7 @@ class Test extends TestCase
      * @test
      * @dataProvider provider
      */
-    public function it_can_generate_valid_password(int $i)
+    public function gummibeer(int $i)
     {
         $password = require realpath(__DIR__.'/../src/gummibeer.php');
 
