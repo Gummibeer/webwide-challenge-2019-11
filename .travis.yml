@@ -2,22 +2,25 @@ matrix:
   include:
     - language: php
       php: 7.4snapshot
+      env: USER=gummibeer
       before_install:
         - composer config discard-changes true
         - travis_retry composer self-update
       install:
         - travis_retry composer update --prefer-stable --prefer-dist --no-suggest --no-interaction
       script:
-        - vendor/bin/phpunit --filter gummibeer
+        - vendor/bin/phpunit --filter ${USER}
     - language: node_js
       node_js: 12
+      env: USER=kylejrp
       install:
         - travis_retry npm install
       script:
-        - node ./node_modules/.bin/mocha -g kylejrp
+        - node ./node_modules/.bin/mocha --grep ${USER}
     - language: node_js
       node_js: 12
+      env: USER=gummibeer
       install:
         - travis_retry npm install
       script:
-        - node ./node_modules/.bin/mocha -g gummibeer
+        - node ./node_modules/.bin/mocha --grep ${USER}
