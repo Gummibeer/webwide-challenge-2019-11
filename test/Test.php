@@ -22,7 +22,7 @@ class Test extends TestCase
         static::assertTrue(boolval(preg_match("/[a-z]/", $password)), $password);
         static::assertTrue(boolval(preg_match("/[A-Z]/", $password)), $password);
         static::assertTrue(boolval(preg_match("/[0-9]/", $password)), $password);
-        static::assertTrue(boolval(preg_match('/['.preg_quote('!#$%&()*+,-./:;<=>? @\[\]^_{|}~').']/', $password)), $password);
+        static::assertTrue(boolval(preg_match('/[\!\#\$\%\&\(\)\*\+\,\-\.\/\:\;\<\=\>\? \@\[\]\^\_\{\|\}\~]/', $password)), $password);
     }
 
     public function provider(): array
