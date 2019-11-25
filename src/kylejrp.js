@@ -1,3 +1,8 @@
+/**
+ * @author kylejrp
+ * @link https://webwide.io/threads/programming-code-golf-password-generator.507/post-3494
+ */
+
 module.exports = function () {
     var z='x'
     while(!(z.match(/[a-z]/)&&z.match(/[A-Z]/)&&z.match(/\d/)&&z.match(/\W/)))
