@@ -10,7 +10,7 @@ class Test extends TestCase
      */
     public function it_can_generate_valid_password(int $i)
     {
-        $password = require '../src/gummibeer.php';
+        $password = require realpath(__DIR__.'/../src/gummibeer.php');
 
         $this->assertIsString($password);
         $this->assertEquals(16, strlen($password));
