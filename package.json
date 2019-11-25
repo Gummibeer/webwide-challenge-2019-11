@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mocha": "^6.2.2",
+    "should": "^13.2.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter=dot"
+  }
+}
